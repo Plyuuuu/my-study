@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 和接口绑定 一个接口对应一个xml-->
+<mapper namespace="github.veikkoroc.javaee.mybatis.a.CountryMapper">
+    <!-- 和接口的方法绑定 void getCountryById(int id);-->
+    <select id="getCountryById" resultType="github.veikkoroc.javaee.mybatis.a.Country">
+        select * from country where id = #{id}
+    </select>
+
+    <select id="getAllCountry" resultType="github.veikkoroc.javaee.mybatis.a.Country">
+        select * from country
+    </select>
+</mapper>
+
