@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--开启组件扫描-->
-    <context:component-scan base-package="github.veikkoroc.javaee.spring"></context:component-scan>
+    <context:component-scan base-package="github.veikkoroc.JavaEE.spring"></context:component-scan>
 
     <!--开启Aspect生成代理对象-->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>

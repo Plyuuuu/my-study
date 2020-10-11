@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
         <!--配置User对象-->
-        <bean id="user" class="github.veikkoroc.javaee.spring.a_helloworld.User"></bean>
+        <bean id="user" class="github.veikkoroc.JavaEE.spring.a_helloworld.User"></bean>
 
 
 </beans>
