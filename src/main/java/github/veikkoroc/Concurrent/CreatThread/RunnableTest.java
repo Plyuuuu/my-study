@@ -16,7 +16,9 @@ public class RunnableTest implements Runnable {
         //创建线程、启动线程
         RunnableTest runnableTest = new RunnableTest();
 
+        // Thread-0
         new Thread(runnableTest).start();
+        // Thread-1
         new Thread(runnableTest).start();
     }
 }

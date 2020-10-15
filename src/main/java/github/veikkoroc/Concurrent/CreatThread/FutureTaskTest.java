@@ -12,10 +12,19 @@ import java.util.concurrent.FutureTask;
 public class FutureTaskTest implements Callable<String> {
     @Override
     public String call() throws Exception {
+
+        System.out.println("睡前~");
+
+        Thread.sleep(1000);
+
+        // 证明异步
+        System.out.println("睡后~");
+
         return "我是一个线程:"+ Thread.currentThread().getName();
     }
 
     public static void main(String[] args) {
+
         //创建Callable接口实现类对象
         FutureTaskTest futureTaskTest = new FutureTaskTest();
 
@@ -29,8 +38,15 @@ public class FutureTaskTest implements Callable<String> {
 
         try {
             //等待任务执行完毕，获得返回结果
-            String res = futureTask.get();
+            String res = "res:"+futureTask.get();
+
+            //测试异步，等到call方法执行完毕才执行
+            System.out.println("测试异步~~~");
+
             System.out.println(res);
+
+
+
 
             //获取不到第二个线程？？？
             //String res1 = futureTask.get();
