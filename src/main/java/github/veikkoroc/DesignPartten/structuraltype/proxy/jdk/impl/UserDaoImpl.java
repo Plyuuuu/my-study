@@ -17,4 +17,10 @@ public class UserDaoImpl implements UserDao {
         }
         return false;
     }
+
+    @Override
+    public Boolean findUserById(int userId) {
+        System.out.println("userId:"+userId);
+        return true;
+    }
 }

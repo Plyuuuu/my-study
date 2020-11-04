@@ -12,4 +12,5 @@ public interface UserDao {
      * @return
      */
     Boolean findUserById(String userId);
+    Boolean findUserById(int userId);
 }

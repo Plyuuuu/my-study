@@ -17,5 +17,6 @@ public class ListStudy {
     public static void main(String[] args) {
         ArrayList arrayList = new ArrayList();
         System.out.println(123);
+
     }
 }

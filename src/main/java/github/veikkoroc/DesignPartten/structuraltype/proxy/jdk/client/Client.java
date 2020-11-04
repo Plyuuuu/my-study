@@ -19,5 +19,6 @@ public class Client {
         InvocationHandler handler = new DaoLogHandler(userDao);
         UserDao proxy = (UserDao) Proxy.newProxyInstance(UserDao.class.getClassLoader(),new Class[]{UserDao.class},handler);
         proxy.findUserById("迪丽热巴");
+        proxy.findUserById(1);
     }
 }

@@ -21,6 +21,7 @@ public class DaoLogHandler implements InvocationHandler {
 
     /**
      * 注入一个需要代理的真实主题对象
+     *
      * @param o
      */
     public DaoLogHandler(Object o){
@@ -40,6 +41,7 @@ public class DaoLogHandler implements InvocationHandler {
         beforeInvoke();
         //转发调用
         Object result = method.invoke(object, args);
+
         System.out.println("调用结束 ~");
 
         return result;

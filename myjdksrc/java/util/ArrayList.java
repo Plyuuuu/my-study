@@ -160,6 +160,14 @@ public class ArrayList<E> extends AbstractList<E>
 
     /**
      * Constructs an empty list with an initial capacity of ten.
+     *
+     * 无参构造器:初始化一个{}的Object的数组elementData
+     *
+     *  private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+     *  transient Object[] elementData;
+     *
+     *
+     *
      */
     public ArrayList() {
         this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
@@ -219,21 +227,9 @@ public class ArrayList<E> extends AbstractList<E>
         }
     }
 
-    private void ensureCapacityInternal(int minCapacity) {
-        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
-            minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
-        }
 
-        ensureExplicitCapacity(minCapacity);
-    }
 
-    private void ensureExplicitCapacity(int minCapacity) {
-        modCount++;
 
-        // overflow-conscious code
-        if (minCapacity - elementData.length > 0)
-            grow(minCapacity);
-    }
 
     /**
      * The maximum size of array to allocate.
@@ -243,23 +239,7 @@ public class ArrayList<E> extends AbstractList<E>
      */
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 
-    /**
-     * Increases the capacity to ensure that it can hold at least the
-     * number of elements specified by the minimum capacity argument.
-     *
-     * @param minCapacity the desired minimum capacity
-     */
-    private void grow(int minCapacity) {
-        // overflow-conscious code
-        int oldCapacity = elementData.length;
-        int newCapacity = oldCapacity + (oldCapacity >> 1);
-        if (newCapacity - minCapacity < 0)
-            newCapacity = minCapacity;
-        if (newCapacity - MAX_ARRAY_SIZE > 0)
-            newCapacity = hugeCapacity(minCapacity);
-        // minCapacity is usually close to size, so this is a win:
-        elementData = Arrays.copyOf(elementData, newCapacity);
-    }
+
 
     private static int hugeCapacity(int minCapacity) {
         if (minCapacity < 0) // overflow
@@ -455,10 +435,68 @@ public class ArrayList<E> extends AbstractList<E>
      * @return <tt>true</tt> (as specified by {@link Collection#add})
      */
     public boolean add(E e) {
+
+        // 确定内部容量再添加一个元素容量是否足够的方法
         ensureCapacityInternal(size + 1);  // Increments modCount!!
+
         elementData[size++] = e;
+
         return true;
     }
+
+    private void ensureCapacityInternal(int minCapacity) {
+        // 如果当前数组是{}，
+        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
+
+            // 返回 10 和 minCapacity最大值，即第一次扩容时是10
+            minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
+        }
+
+        ensureExplicitCapacity(minCapacity);
+    }
+
+    private void ensureExplicitCapacity(int minCapacity) {
+        modCount++;
+
+        // 判断 minCapacity （size+1） 是否大于当前数组大小，如果大于则需要扩容
+        // overflow-conscious code
+        if (minCapacity - elementData.length > 0)
+            grow(minCapacity);
+    }
+
+    /**
+     * Increases the capacity to ensure that it can hold at least the
+     * number of elements specified by the minimum capacity argument.
+     *
+     * @param minCapacity the desired minimum capacity
+     */
+    private void grow(int minCapacity) {
+
+        // 按照1.5倍来扩容
+        // overflow-conscious code
+        int oldCapacity = elementData.length;
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
+
+
+        if (newCapacity - minCapacity < 0)
+            newCapacity = minCapacity;
+
+        if (newCapacity - MAX_ARRAY_SIZE > 0)
+            newCapacity = hugeCapacity(minCapacity);
+
+        // 数组拷贝
+        // minCapacity is usually close to size, so this is a win:
+        elementData = Arrays.copyOf(elementData, newCapacity);
+    }
+
+    /**
+     * 这不是JDK，此方法无效
+     */
+    public static void mytest(){
+        System.out.println("mytest");
+    }
+
+
 
     /**
      * Inserts the specified element at the specified position in this
@@ -979,7 +1017,7 @@ public class ArrayList<E> extends AbstractList<E>
      * <pre>
      *      list.subList(from, to).clear();
      * </pre>
-     * Similar idioms may be constructed for {@link #indexOf(Object)} and
+     * Similar idioms may be constructed for {@link. #indexOf(Object)} and
      * {@link #lastIndexOf(Object)}, and all of the algorithms in the
      * {@link Collections} class can be applied to a subList.
      *
