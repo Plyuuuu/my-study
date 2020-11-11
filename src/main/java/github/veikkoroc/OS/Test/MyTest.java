@@ -51,6 +51,7 @@ public class MyTest {
      */
     @Test
     public void test02(){
+
         for (int i = 0; i < 100; i++) {
             int random =(int) (Math.random()*1000);
             System.out.println(random);

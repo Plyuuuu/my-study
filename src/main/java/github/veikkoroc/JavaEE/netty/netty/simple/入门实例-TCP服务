@@ -1,0 +1,3 @@
+1、Netty服务器在8888端口监听，
+2、客户端能发送消息给服务器“Hello Server~”
+3、服务器能回复客户端“Hello Client~”
