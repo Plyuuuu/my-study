@@ -2,6 +2,7 @@ package github.veikkoroc.JavaEE.netty.netty.simple;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -39,7 +40,27 @@ public class NettyServer {
             // 绑定端口且同步，生成一个channelFuture对象
             ChannelFuture channelFuture = serverBootstrap.bind(8888).sync();
 
+
+//            Server is ready...
+//            添加Future的Listener成功~
+//            监听 8888 端口成功~
             System.out.println("Server is ready...");
+
+            // 异步执行
+            channelFuture.addListener(new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture channelFuture) throws Exception {
+                    Thread.sleep(1000);
+                    if (channelFuture.isSuccess()){
+                        System.out.println("监听 8888 端口成功~");
+                    }else {
+                        System.out.println("监听 8888 端口失败！");
+                    }
+                }
+            });
+
+            System.out.println("添加Future的Listener成功~");
+
 
             // 对关闭通道进行监听
             channelFuture.channel().closeFuture().sync();
