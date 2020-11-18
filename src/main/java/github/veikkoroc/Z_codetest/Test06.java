@@ -1,5 +1,7 @@
 package github.veikkoroc.Z_codetest;
 
+import org.junit.Test;
+
 /**
  * @author Veikko Roc
  * @version 1.0
@@ -21,5 +23,10 @@ public class Test06 {
                 break;
         }
         System.out.println(num);
+    }
+    @Test
+    public void test(){
+        System.out.println("Hello word!!!");
+        System.out.println("编码解码过没有意愿");
     }
 }
