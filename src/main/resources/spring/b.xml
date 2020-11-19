@@ -4,28 +4,28 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--Set 注入属性-->
-    <bean id="book" class="github.veikkoroc.JavaEE.spring.b_IoC.Book">
+    <bean id="book" class="github.veikkoroc.Framework.spring.b_IoC.Book">
         <property name="bname" value="深入理解JVM"></property>
         <property name="bauthor" value="周志明老师"></property>
     </bean>
 
     <!--使用有参构造注入属性-->
-    <bean id="person" class="github.veikkoroc.JavaEE.spring.b_IoC.Person">
+    <bean id="person" class="github.veikkoroc.Framework.spring.b_IoC.Person">
         <constructor-arg name="name" value="迪丽热巴"></constructor-arg>
         <constructor-arg name="age" value="18"></constructor-arg>
     </bean>
 
     <!-- p名称空间注入 -->
-    <bean id="book2" class="github.veikkoroc.JavaEE.spring.b_IoC.Book" p:bname="Java并发编程" p:bauthor="要陆续"></bean>
+    <bean id="book2" class="github.veikkoroc.Framework.spring.b_IoC.Book" p:bname="Java并发编程" p:bauthor="要陆续"></bean>
 
     <!--属性注入bean-->
-    <bean id="book_has_person" class="github.veikkoroc.JavaEE.spring.b_IoC.Book">
+    <bean id="book_has_person" class="github.veikkoroc.Framework.spring.b_IoC.Book">
         <property name="bname" value="深入JVM"></property>
         <property name="bauthor" value="周志明"></property>
         <property name="author" ref="person_has_book"/>
     </bean>
 
-    <bean id="person_has_book" class="github.veikkoroc.JavaEE.spring.b_IoC.Person">
+    <bean id="person_has_book" class="github.veikkoroc.Framework.spring.b_IoC.Person">
         <constructor-arg name="name" value="周志明"></constructor-arg>
         <constructor-arg name="age" value="48"></constructor-arg>
         <constructor-arg name="book" ref="book_has_person"></constructor-arg>
@@ -33,18 +33,18 @@
 
     <!--AB两个类循环依赖-->
     <!--set方式没有报错-->
-    <bean id="a" class="github.veikkoroc.JavaEE.spring.b_IoC.circulardependency.A">
+    <bean id="a" class="github.veikkoroc.Framework.spring.b_IoC.circulardependency.A">
         <property name="b" ref="b"></property>
     </bean>
-    <bean id="b" class="github.veikkoroc.JavaEE.spring.b_IoC.circulardependency.B">
+    <bean id="b" class="github.veikkoroc.Framework.spring.b_IoC.circulardependency.B">
         <property name="a" ref="a"></property>
     </bean>
 
     <!--构造方法注入-->
-    <bean id="a1" class="github.veikkoroc.JavaEE.spring.b_IoC.circulardependency.A">
+    <bean id="a1" class="github.veikkoroc.Framework.spring.b_IoC.circulardependency.A">
         <constructor-arg name="b" ref="b1"></constructor-arg>
     </bean>
-    <bean id="b1" class="github.veikkoroc.JavaEE.spring.b_IoC.circulardependency.B">
+    <bean id="b1" class="github.veikkoroc.Framework.spring.b_IoC.circulardependency.B">
         <constructor-arg name="a" ref="a1"></constructor-arg>
     </bean>
 
