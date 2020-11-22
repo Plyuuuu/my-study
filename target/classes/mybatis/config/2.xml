@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--绑定接口-->
-<mapper namespace="github.veikkoroc.Framework.mybatis.b.DepartmentMapper">
-    <resultMap id="departmentMapper" type="github.veikkoroc.Framework.mybatis.b.Department">
+<mapper namespace="github.veikkoroc.framework.mybatis.b.DepartmentMapper">
+    <resultMap id="departmentMapper" type="github.veikkoroc.framework.mybatis.b.Department">
         <!-- 指定主键列的封装规则
 			id:定义主键，底层有优化
 			column:指定数据库哪一列

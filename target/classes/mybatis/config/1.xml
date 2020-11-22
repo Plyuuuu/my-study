@@ -4,13 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 和接口绑定 一个接口对应一个xml-->
-<mapper namespace="github.veikkoroc.Framework.mybatis.a.CountryMapper">
+<mapper namespace="github.veikkoroc.framework.mybatis.a.CountryMapper">
     <!-- 和接口的方法绑定 void getCountryById(int id);-->
-    <select id="getCountryById" resultType="github.veikkoroc.Framework.mybatis.a.Country">
+    <select id="getCountryById" resultType="github.veikkoroc.framework.mybatis.a.Country">
         select * from country where id = #{id}
     </select>
 
-    <select id="getAllCountry" resultType="github.veikkoroc.Framework.mybatis.a.Country">
+    <select id="getAllCountry" resultType="github.veikkoroc.framework.mybatis.a.Country">
         select * from country
     </select>
 </mapper>

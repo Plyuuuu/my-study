@@ -46,15 +46,15 @@ public interface InvocationHandler {
      * when a method is invoked on a proxy instance that it is
      * associated with.
      *
-     * @param   proxy the proxy instance that the method was invoked on
+     * @param   proxy the proxy instance that the method was invoked on         [JDK 创建的代理对象，无需赋值管理等操作]
      *
-     * @param   method the {@code Method} instance corresponding to
+     * @param   method the {@code Method} instance corresponding to             [目标类中的方法，JDK 提供的，无需赋值管理等操作]
      * the interface method invoked on the proxy instance.  The declaring
      * class of the {@code Method} object will be the interface that
      * the method was declared in, which may be a superinterface of the
      * proxy interface that the proxy class inherits the method through.
      *
-     * @param   args an array of objects containing the values of the
+     * @param   args an array of objects containing the values of the           [目标类中方法的参数,JDK提供,也不要管]
      * arguments passed in the method invocation on the proxy instance,
      * or {@code null} if interface method takes no arguments.
      * Arguments of primitive types are wrapped in instances of the
@@ -90,6 +90,6 @@ public interface InvocationHandler {
      *
      * @see     UndeclaredThrowableException
      */
-    public Object invoke(Object proxy, Method method, Object[] args)
+    public Object invoke(Object proxy, Method method, Object[] args) // 想要干什么写在该方法中
         throws Throwable;
 }
