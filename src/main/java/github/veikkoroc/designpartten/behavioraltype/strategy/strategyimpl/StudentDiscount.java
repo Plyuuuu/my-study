@@ -3,6 +3,7 @@ package github.veikkoroc.designpartten.behavioraltype.strategy.strategyimpl;
 import github.veikkoroc.designpartten.behavioraltype.strategy.strategy.Discount;
 
 /**
+ * 学生票算法
  * @author Veikko Roc
  * @version 1.0
  * @date 2020/10/9 10:56

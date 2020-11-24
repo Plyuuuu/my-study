@@ -3,6 +3,8 @@ package github.veikkoroc.designpartten.behavioraltype.strategy.strategyimpl;
 import github.veikkoroc.designpartten.behavioraltype.strategy.strategy.Discount;
 
 /**
+ * VIP算法
+ *
  * @author Veikko Roc
  * @version 1.0
  * @date 2020/10/9 11:03
