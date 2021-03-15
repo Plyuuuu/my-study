@@ -16,6 +16,9 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * @author LvPeng
+ */
 public class NettyClient {
 
     //创建线程池
